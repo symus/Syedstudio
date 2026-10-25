@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #faf7f2;
+  --color-paper: #ffffff;
+  --color-sand: #f1ebe2;
+  --color-line: #e6ded2;
+  --color-ink: #2b2724;
+  --color-ink-soft: #5f5750;
+  --color-muted: #6f675f;
+  --color-terracotta: #b0603f;
+  --color-terracotta-dark: #8f4a2f;
+  --color-sage: #6b8a6e;
+  --color-sage-soft: #e7eee6;
+  --color-danger: #b42318;
+  --color-success: #2f6b3a;
+  --color-warning: #8a5a00;
+
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-rounded: ui-rounded, "SF Pro Rounded", "Nunito", "Varela Round", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1.25rem;
+  --shadow-soft: 0 1px 2px rgb(43 39 36 / 0.04), 0 8px 24px -12px rgb(43 39 36 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(43 39 36 / 0.05), 0 18px 40px -18px rgb(43 39 36 / 0.25);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: #ecd3c6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-fade-up { animation: fade-up 0.5s ease-out both; }

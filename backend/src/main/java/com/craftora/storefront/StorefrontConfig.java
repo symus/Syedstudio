@@ -37,8 +37,7 @@ public record StorefrontConfig(
         return new StorefrontConfig(template.getKey(), template.getDefaultPrimaryColor(),
                 template.getDefaultAccentColor(), Font.valueOf(template.getDefaultFont()), businessName, tagline,
                 null, null, null, null,
-                List.of(Section.HERO, Section.FEATURED_PRODUCTS, Section.ABOUT, Section.GALLERY,
-                        Section.CUSTOM_ORDER, Section.CONTACT),
+                List.of(Section.HERO, Section.FEATURED_PRODUCTS, Section.ABOUT, Section.CUSTOM_ORDER, Section.CONTACT),
                 language, null, null);
     }
 
