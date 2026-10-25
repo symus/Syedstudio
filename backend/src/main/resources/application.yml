@@ -1,0 +1,92 @@
+spring:
+  application:
+    name: craftora
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/craftora}
+    username: ${DATABASE_USERNAME:craftora}
+    password: ${DATABASE_PASSWORD:craftora}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc.time_zone: UTC
+        default_batch_fetch_size: 50
+  flyway:
+    enabled: true
+  jackson:
+    deserialization:
+      # omitted booleans in request bodies mean "false" rather than a 400
+      fail-on-null-for-primitives: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 40MB
+  mail:
+    host: ${SMTP_HOST:localhost}
+    port: ${SMTP_PORT:1025}
+    username: ${SMTP_USERNAME:}
+    password: ${SMTP_PASSWORD:}
+
+server:
+  port: ${PORT:8080}
+  forward-headers-strategy: framework
+  error:
+    include-stacktrace: never
+
+management:
+  health:
+    mail:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+springdoc:
+  swagger-ui:
+    path: /api/docs
+  api-docs:
+    path: /api/docs/openapi.json
+
+logging:
+  level:
+    root: INFO
+    com.craftora: INFO
+
+app:
+  brand-name: ${APP_BRAND_NAME:Craftora}
+  public-url: ${APP_PUBLIC_URL:http://localhost:3000}
+  default-locale: pl
+  supported-locales: [pl, en]
+  makers:
+    auto-approve: ${APP_MAKERS_AUTO_APPROVE:false}
+  session:
+    cookie-name: craftora_session
+    ttl: 30d
+    cookie-secure: ${APP_COOKIE_SECURE:false}
+  mail:
+    mode: ${APP_MAIL_MODE:log}       # log | smtp
+    from: ${APP_MAIL_FROM:Craftora <no-reply@craftora.example>}
+  storage:
+    provider: ${APP_STORAGE_PROVIDER:local}   # local | s3
+    local-root: ${APP_STORAGE_LOCAL_ROOT:./data/uploads}
+    s3:
+      bucket: ${S3_BUCKET:craftora}
+      region: ${S3_REGION:eu-central-1}
+      endpoint: ${S3_ENDPOINT:}
+      access-key: ${S3_ACCESS_KEY:}
+      secret-key: ${S3_SECRET_KEY:}
+      path-style: ${S3_PATH_STYLE:true}
+  uploads:
+    max-image-bytes: 5242880
+    max-inquiry-attachments: 3
+  rate-limit:
+    auth-per-minute: 10
+    public-forms-per-hour: 20
+  dev:
+    outbox-enabled: ${APP_DEV_OUTBOX:false}
+  bootstrap:
+    admin-email: ${APP_ADMIN_EMAIL:}
+    admin-password: ${APP_ADMIN_PASSWORD:}

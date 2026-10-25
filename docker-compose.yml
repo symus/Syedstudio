@@ -1,0 +1,52 @@
+# Local full stack: docker compose up --build
+# App: http://localhost:3000 · API docs: http://localhost:8080/api/docs · Mail: http://localhost:8025
+# Images use the local storage provider on a volume; set APP_STORAGE_PROVIDER=s3 + S3_* for S3/R2 in production.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: craftora
+      POSTGRES_USER: craftora
+      POSTGRES_PASSWORD: craftora
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U craftora"]
+      interval: 5s
+      retries: 10
+
+  mailpit:
+    image: axllent/mailpit:v1.27
+    ports: ["8025:8025", "1025:1025"]
+
+  backend:
+    build: ./backend
+    depends_on:
+      postgres: { condition: service_healthy }
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/craftora
+      DATABASE_USERNAME: craftora
+      DATABASE_PASSWORD: craftora
+      APP_PUBLIC_URL: http://localhost:3000
+      APP_MAIL_MODE: smtp
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      APP_STORAGE_PROVIDER: local
+      APP_STORAGE_LOCAL_ROOT: /data/uploads
+      APP_ADMIN_EMAIL: ${APP_ADMIN_EMAIL:-admin@craftora.local}
+      APP_ADMIN_PASSWORD: ${APP_ADMIN_PASSWORD:-change-me-admin-password}
+      APP_MAKERS_AUTO_APPROVE: ${APP_MAKERS_AUTO_APPROVE:-false}
+    volumes: [uploads:/data/uploads]
+    ports: ["8080:8080"]
+
+  frontend:
+    build: ./frontend
+    depends_on: [backend]
+    environment:
+      BACKEND_URL: http://backend:8080
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+    ports: ["3000:3000"]
+
+volumes:
+  pgdata:
+  uploads:
