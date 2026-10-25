@@ -1,0 +1,21 @@
+# build output
+backend/target/
+backend/data/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/test-results/
+frontend/playwright-report/
+frontend/next-env.d.ts
+*.tsbuildinfo
+
+# env & secrets
+.env
+.env.*
+!.env.example
+
+# editors / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
