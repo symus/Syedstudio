@@ -94,6 +94,8 @@ never from entities.
 ## 4. Running locally
 
 ### Option A — Docker Compose (whole stack)
+> **Windows users:** follow the step-by-step checklist in [`docs/LOCAL_SETUP_WINDOWS.md`](docs/LOCAL_SETUP_WINDOWS.md).
+
 ```bash
 docker compose up --build
 ```
