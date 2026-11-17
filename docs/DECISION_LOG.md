@@ -43,3 +43,10 @@ Format: Decision · Context · Options · Reason · Consequences/risks · Date/s
 - **Reason:** Time-to-value. Use reporting, rate limits and manual review of flagged shops instead.
 - **Consequences/risks:** More spam/fake-shop risk; mitigate with email verification before first order is accepted, report button, admin suspend.
 - **Date/status:** 2026-11-17 · **Proposed** (part of Stage 2 draft).
+
+### D8 — Founder time for seller work: 3 h/week
+- **Context:** Validation needs ~25 h of seller work; onboarding each founding seller needs ~1 h plus ~15 min/week support.
+- **Consequences:** 30-day plan becomes ~8–9 weeks; founding-seller pilot capped at ~8 sellers (8 h onboarding + ~16 h support over 8 weeks ≈ 3 h/week).
+- **Options under review:** A) stretch timeline; B) temporarily move coding hours to seller work during validation (recommended); C) part-time Polish-speaking helper.
+- **Risk:** Seller access is the biggest risk in this business, not code. Too little seller time is the most likely way this project fails.
+- **Date/status:** 2026-11-17 · **Constraint accepted; option pending**.

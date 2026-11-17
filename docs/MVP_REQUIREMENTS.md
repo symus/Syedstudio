@@ -98,9 +98,9 @@ templates (keep one mobile-first template), Pinterest/occasion fields.
 
 | Metric | Target (hypothesis) |
 |---|---|
-| Founding sellers onboarded personally | 20 |
-| Activated (≥ 1 real order in first 14 days) | ≥ 50% (10) |
-| Weekly transacting sellers in week 8 | ≥ 8 |
+| Founding sellers onboarded personally | 8 (capacity limit at 3 h/week — see D8; 20 only with more time or a helper) |
+| Activated (≥ 1 real order in first 14 days) | ≥ 50% (4) |
+| Weekly transacting sellers in week 8 | ≥ 4 |
 | Share of a seller's orders recorded in the platform | ≥ 60% |
 | Orders per active seller per week | ≥ 5 |
 | Oversell incidents | 0 |

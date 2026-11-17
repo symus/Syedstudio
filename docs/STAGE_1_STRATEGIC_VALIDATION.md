@@ -152,6 +152,25 @@ real for bakers not boutiques → switch segment (with legal check).
 
 Positive feedback alone does not count. Only behaviour (sharing the link, real orders, money) counts.
 
+### 6a. Time check: founder has 3 h/week for seller work (added 2026-11-17)
+
+Estimated hours for the plan above, at a smaller scale **[Assumption]**:
+
+| Activity | Volume | Hours |
+|---|---|---|
+| Find + message sellers (templates) | 60 sellers | ~3 |
+| Problem interviews (30 min + 15 min notes) | 12 | ~9 |
+| Prototype tests (40 min each) | 8 | ~5.5 |
+| Concierge pilot set-up + support | 5 sellers | ~7.5 |
+| **Total** | | **~25 h** |
+
+At 3 h/week this takes **~8–9 weeks**, not 30 days. Options (see D8 in `DECISION_LOG.md`):
+- **A. Stretch** the plan to ~9 weeks at 3 h/week (slow; competitors keep moving).
+- **B. Move hours from coding to sellers** during validation (there is no product code to write yet) → ~8–10 h/week for 4 weeks. **[Recommendation]**
+- **C. Add a part-time Polish-speaking helper** for outreach and scheduling; founder still runs the interviews.
+
+Reduced sample if A is chosen: 12 interviews (not 15–20), go-gate becomes ≥ 8 of 12 confirming the pain.
+
 ---
 
 ## 7. Recommendation
